@@ -1,5 +1,5 @@
 
-Feature: Contact us feature
+Feature: Contact us 
 
   Scenario: As a trivago user I want to send message using contact us
     Given User in home page

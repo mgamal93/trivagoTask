@@ -14,11 +14,11 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class TestContactForm extends BaseUtil {
+public class TestContactFormSteps extends BaseUtil {
 
 	private BaseUtil base;
 
-	public TestContactForm(BaseUtil base) {
+	public TestContactFormSteps(BaseUtil base) {
 		this.base = base;
 	}
 
