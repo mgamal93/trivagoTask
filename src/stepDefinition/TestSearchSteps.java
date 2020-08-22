@@ -2,6 +2,7 @@ package stepDefinition;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,6 @@ import base.BaseUtil;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import junit.framework.Assert;
 
 public class TestSearchSteps extends BaseUtil {
 	private BaseUtil base;
@@ -43,10 +43,9 @@ public class TestSearchSteps extends BaseUtil {
 
 	@Then("^User should find the search result successfully$")
 	public void user_should_find_the_search_result_successfully() {
-		String actualString = base.driver.findElement(By.className("section-title")).getText();
-		String expectedString = "6 Search Results";
-//		Assert.assertTrue(actualString.contains(expectedString));
-		Assert.assertEquals(expectedString, actualString);
+		String searchResultTitleAR = base.driver.findElement(By.className("section-title")).getText();
+		String searchResultTitleER = "6 Search Results";
+		Assert.assertEquals(searchResultTitleER, searchResultTitleAR);
 	}
 
 }

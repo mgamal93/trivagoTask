@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,22 +38,21 @@ public class TestContactFormSteps extends BaseUtil {
 
 	@When("^User enters the name \"([^\"]*)\" and the email \"([^\"]*)\" and message \"([^\"]*)\"$")
 	public void user_enters_the_name_and_the_email_and_message(String name, String email, String message) {
-		// WebDriverWait wait = new WebDriverWait(base.driver, 30);
-		// wait.until(ExpectedConditions.invisibilityOfElementLocated(By.className("contact-msg")));
-		// base.driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		 WebDriverWait wait = new WebDriverWait(base.driver, 30);
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("contact-msg")));
+//		 base.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		WebElement contactEmail = base.driver.findElement(By.id("contact-email"));
-		contactEmail.sendKeys(email);
 		
-		WebElement contactMsg = (new WebDriverWait(base.driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.className("contact-msg")));
-//		WebElement contactMsg = base.driver.findElement(By.className("contact-msg"));
+		
+//		WebElement contactMsg = (new WebDriverWait(base.driver, 10)).until(ExpectedConditions.visibilityOfElementLocated(By.className("contact-msg")));
+		WebElement contactMsg = base.driver.findElement(By.className("contact-msg"));
 		contactMsg.sendKeys(message);
 
 		WebElement contactName = base.driver.findElement(By.className("contact-input"));
 		contactName.sendKeys(name);
 
-//		WebElement contactEmail = base.driver.findElement(By.id("contact-email"));
-//		contactEmail.sendKeys(email);
+		WebElement contactEmail = base.driver.findElement(By.id("contact-email"));
+		contactEmail.sendKeys(email);
 
 	}
 

@@ -1,6 +1,6 @@
-Feature: Subscribe to the Newsletter
+Feature: Menu Destinations 
 
-  Scenario: As a trivago user I want to Navigate to a destination through the menu on the top left
+  Scenario: As a trivago user I want to navigate to a destination through the menu on the top left
   
     Given User in home page
     When User click on menu button
