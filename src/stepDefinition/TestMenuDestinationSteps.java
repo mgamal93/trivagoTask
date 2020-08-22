@@ -39,11 +39,12 @@ public class TestMenuDestinationSteps extends BaseUtil {
 
 	@Then("^User should be redirected to the specific destination page$")
 	public void user_should_be_redirected_to_the_specific_destination_page() {
-		WebDriverWait wait = new WebDriverWait(base.driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("hero-main-title dest-2-main-title")));
+		// base.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		String destinationTitleAR = base.driver.findElement(By.className("hero-main-title dest-2-main-title"))
-				.getText();
+		WebDriverWait wait = new WebDriverWait(base.driver, 15);
+		wait.until(ExpectedConditions.urlToBe("https://magazine.trivago.com/destination/northwest/"));
+
+		String destinationTitleAR = base.driver.findElement(By.className("dest-2-main-title")).getText();
 		System.out.println("Title is : " + destinationTitleAR);
 		String destinationTitleER = "Northwest";
 		Assert.assertEquals(destinationTitleER, destinationTitleAR);
