@@ -1,14 +1,12 @@
 package stepDefinition;
 
 import java.util.concurrent.TimeUnit;
-
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import base.BaseUtil;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import junit.framework.Assert;
 
 public class TestMenuDestinationSteps extends BaseUtil {
 
