@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.BaseUtil;
@@ -38,15 +39,11 @@ public class TestNewSletterSubscribeSteps extends BaseUtil {
 	@Then("^message should be displayed \"([^\"]*)\"$")
 	public void message_should_be_displayed(String arg1) {
 
-		base.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(base.driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("submitted")));
 
-		/*
-		 * (new WebDriverWait(base.driver, 30)).until(new ExpectedCondition<Boolean>() {
-		 * public Boolean apply(WebDriver drive) { return
-		 * base.driver.findElement(By.className("submitted")).getText().length() != 0; }
-		 * });
-		 */
 		String submittedMsgAR = base.driver.findElement(By.className("submitted")).getText();
+
 		String submittedMsgER = "You are now checked-in!";
 		Assert.assertEquals(submittedMsgER, submittedMsgAR);
 	}

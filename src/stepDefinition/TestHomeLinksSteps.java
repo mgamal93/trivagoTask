@@ -27,20 +27,6 @@ public class TestHomeLinksSteps extends BaseUtil {
 
 	@When("^System navigate to all links$")
 	public void system_navigate_to_all_links() {
-		/*
-		 * List<WebElement> linksize = base.driver.findElements(By.tagName("a"));
-		 * linksCount = linksize.size();
-		 * System.out.println("Total no of links Available: " + linksCount); String[]
-		 * links = new String[linksCount];
-		 * System.out.println("List of links Available: "); // print all the links from
-		 * webpage for (int i = 0; i < linksCount; i++) { links[i] =
-		 * linksize.get(i).getAttribute("href");
-		 * System.out.println(linksize.get(i).getAttribute("href")); } // navigate to
-		 * each Link on the webpage for (int i = 0; i < linksCount; i++) {
-		 * base.driver.navigate().to(links[i]); }
-		 */
-
-		// Way no 2 to find broken links
 
 		String homePage = "https://magazine.trivago.com/";
 		String url = "";

@@ -4,6 +4,9 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import base.BaseUtil;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,10 +39,12 @@ public class TestMenuDestinationSteps extends BaseUtil {
 
 	@Then("^User should be redirected to the specific destination page$")
 	public void user_should_be_redirected_to_the_specific_destination_page() {
-		base.driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		WebDriverWait wait = new WebDriverWait(base.driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("hero-main-title dest-2-main-title")));
+
 		String destinationTitleAR = base.driver.findElement(By.className("hero-main-title dest-2-main-title"))
 				.getText();
-		System.out.println(destinationTitleAR);
+		System.out.println("Title is : " + destinationTitleAR);
 		String destinationTitleER = "Northwest";
 		Assert.assertEquals(destinationTitleER, destinationTitleAR);
 

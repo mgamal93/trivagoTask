@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.BaseUtil;
 import cucumber.api.java.en.Given;
@@ -42,8 +44,12 @@ public class TestSearchSteps extends BaseUtil {
 
 	@Then("^User should find the search result successfully$")
 	public void user_should_find_the_search_result_successfully() {
+		WebDriverWait wait = new WebDriverWait(base.driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("section-title")));
+
 		String searchResultTitleAR = base.driver.findElement(By.className("section-title")).getText();
 		String searchResultTitleER = "6 Search Results";
+		System.out.println("the actual result is:" + searchResultTitleAR);
 		Assert.assertEquals(searchResultTitleER, searchResultTitleAR);
 	}
 
