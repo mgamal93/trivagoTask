@@ -39,7 +39,7 @@ public class TestNewSletterSubscribeSteps extends BaseUtil {
 	@Then("^message should be displayed \"([^\"]*)\"$")
 	public void message_should_be_displayed(String arg1) {
 
-		WebDriverWait wait = new WebDriverWait(base.driver, 15);
+		WebDriverWait wait = new WebDriverWait(base.driver, 5);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("submitted")));
 
 		String submittedMsgAR = base.driver.findElement(By.className("submitted")).getText();
